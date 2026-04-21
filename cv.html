@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özgeçmiş | Oktay Sürmeli</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cv-section-title {
+            border-left: 5px solid #ffc107;
+            padding-left: 15px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .skill-badge {
+            transition: 0.3s;
+            cursor: default;
+        }
+
+        .skill-badge:hover {
+            transform: scale(1.1);
+        }
+
+        .table {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html text-uppercase">Oktay Sürmeli</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-uppercase small">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Hakkında</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="cv.html">Özgeçmiş</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mirasimiz.html">Mirasımız</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ilgi-alanlarim.html">İlgi Alanlarım</a></li>
+                    <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+                    <li class="nav-item"><a class="nav-link text-warning" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                    <div class="card-body p-4">
+                        <div class="text-center mb-4">
+                            <img src="img/profil.jpg"
+                                class="img-fluid rounded-circle border border-4 border-white shadow-sm mb-3"
+                                style="width: 150px;" alt="Oktay Sürmeli">
+                            <h3 class="fw-bold">Oktay Sürmeli</h3>
+                            <p class="text-muted">Bilgisayar Mühendisi Adayı</p>
+                        </div>
+
+                        <hr>
+                        <h5 class="fw-bold mb-3"><i class="fa-solid fa-user text-warning me-2"></i>Kişisel Bilgiler</h5>
+                        <div class="small mb-4">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-muted"><i class="fa-solid fa-calendar-days me-2"></i>Doğum
+                                    Tarihi:</span>
+                                <span class="fw-bold">23/01/2008</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-muted"><i class="fa-solid fa-location-dot me-2"></i>Doğum Yeri:</span>
+                                <span class="fw-bold">Karayazı, Erzurum</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-muted"><i class="fa-solid fa-map-pin me-2"></i>İkamet:</span>
+                                <span class="fw-bold">Sakarya / Serdivan</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted"><i class="fa-solid fa-flag me-2"></i>Uyruk:</span>
+                                <span class="fw-bold">T.C.</span>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <h5 class="fw-bold mb-3"><i class="fa-solid fa-code text-warning me-2"></i>Teknik Yetkinlikler
+                        </h5>
+
+                        <div class="mb-3">
+                            <small class="fw-bold">C# & .NET</small>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-dark" style="width: 70%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <small class="fw-bold">C++</small>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-dark" style="width: 65%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <small class="fw-bold">PHP & MySQL</small>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-dark" style="width: 75%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <small class="fw-bold">HTML5 / CSS3 / JS</small>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-dark" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mb-3"><i class="fa-solid fa-language text-warning me-2"></i>Diller</h5>
+                        <p class="small mb-1">Türkçe</p>
+                        <p class="small mb-1">Kürtçe </p>
+                        <p class="small">İngilizce (B1 - Teknik Okuma)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="bg-white p-4 p-md-5 shadow-sm rounded-4">
+
+                    <section class="mb-5">
+                        <h4 class="cv-section-title">EĞİTİM BİLGİLERİ</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover border-light">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Yıl</th>
+                                        <th>Kurum</th>
+                                        <th>Bölüm / Derece</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2024 - ...</td>
+                                        <td><strong>Sakarya Üniversitesi</strong></td>
+                                        <td>Bilgisayar Mühendisliği</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2020 - 2024</td>
+                                        <td><strong>Refahiye Fen Lisesi</strong></td>
+                                        <td><span class="badge bg-success">Okul Birincisi</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section class="mb-5">
+                        <h4 class="cv-section-title">İŞ DENEYİMİ</h4>
+                        <div class="d-flex mb-4">
+                            <div class="me-3 mt-1"><i class="fa-solid fa-briefcase fa-xl text-warning"></i></div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Servis ve Operasyon Destek Elemanı</h5>
+                                <p class="text-muted small mb-2">Starbucks (Cadde 54 & Arteria) | Hafta Sonu (Part-time)
+                                </p>
+                                <p class="small text-secondary">
+                                    <i class="fa-solid fa-check me-2 text-warning"></i>Yüksek yoğunluklu çalışma
+                                    ortamında müşteri deneyimi ve servis operasyonlarının yürütülmesi.<br>
+                                    <i class="fa-solid fa-check me-2 text-warning"></i>Mağaza standartlarının korunması,
+                                    hijyen ve düzen süreçlerinin yönetimi.<br>
+                                </p>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <section class="mb-5">
+                        <h4 class="cv-section-title">TEKNİK PROJELER</h4>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="p-3 border rounded-3 h-100 bg-white shadow-sm">
+                                    <h6 class="fw-bold text-dark"><i
+                                            class="fa-solid fa-draw-polygon me-2 text-warning"></i>C# OOP Drawing Tool
+                                    </h6>
+                                    <p class="small text-muted mb-0">Nesne yönelimli programlama ile geometrik formların
+                                        koordinat sisteminde dinamik yönetimi.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 border rounded-3 h-100 bg-white shadow-sm border-warning">
+                                    <h6 class="fw-bold text-dark"><i
+                                            class="fa-solid fa-car-battery me-2 text-warning"></i>Arduino Robotik Araç
+                                    </h6>
+                                    <p class="small text-muted mb-0">Gömülü sistemler ve sensor teknolojileri
+                                        kullanılarak geliştirilen, otonom engel tanıma ve hareket kontrol sistemi.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 border rounded-3 h-100 bg-white shadow-sm">
+                                    <h6 class="fw-bold text-dark"><i
+                                            class="fa-solid fa-arrows-repeat me-2 text-warning"></i>Birim Dönüştürücü
+                                    </h6>
+                                    <p class="small text-muted mb-0">Farklı ölçü sistemleri arasında yüksek hassasiyetli
+                                        matematiksel dönüşümler yapan algoritmik araç.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 border rounded-3 h-100 bg-white shadow-sm">
+                                    <h6 class="fw-bold text-dark"><i
+                                            class="fa-solid fa-users-gear me-2 text-warning"></i>C++ Etkinlik Yönetimi
+                                    </h6>
+                                    <p class="small text-muted mb-0">C++ ile geliştirilen; kapasite hesabı, davetli
+                                        lojistiği ve operasyonel planlama üzerine kurgulanmış sistem.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h4 class="cv-section-title">İLGİ ALANLARI</h4>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge rounded-pill bg-warning text-dark px-3 py-2 skill-badge">Sportif
+                                Etkinlikler</span>
+                            <span class="badge rounded-pill bg-warning text-dark px-3 py-2 skill-badge">Finansal
+                                Okuryazarlık</span>
+                            <span class="badge rounded-pill bg-warning text-dark px-3 py-2 skill-badge">ESC
+                                Projeleri</span>
+                            <span class="badge rounded-pill bg-warning text-dark px-3 py-2 skill-badge">Doğa
+                                Yürüyüşü</span>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-5 mt-auto">
+        <div class="container">
+            <div class="mb-4">
+                <a href="https://www.linkedin.com/in/KULLANICI_ADIN" target="_blank"
+                    class="text-white me-4 fs-4 social-icon">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/_oktaysurmeli" target="_blank" class="text-white fs-4 social-icon">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+
+            <p class="mb-1 small">Oktay Sürmeli | Sakarya Üniversitesi Bilgisayar Mühendisliği</p>
+            <small class="text-muted">&copy; 2026 Tüm Hakları Saklıdır.</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

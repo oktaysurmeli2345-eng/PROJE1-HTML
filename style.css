@@ -1,19 +1,22 @@
 
+/* Dış kaynak yazı tipi bağlantısı */
+/* Google Fonts servisinden 'Inter' yazı tipi ailesini (ince, normal ve kalın ağırlıklarıyla) projeye dahil eder. */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
 
+/*Genel Sayfa Ayarları*/
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f8f9fa; 
-    color: #333; 
+    background-color: #f8f9fa;
+    color: #333;
 }
 
-
+/*Navigasyon Çubuğu*/
 .navbar {
     background: linear-gradient(90deg, #1a1a1a 0%, #333333 100%) !important;
-    border-bottom: 2px solid #ffc107; 
+    border-bottom: 2px solid #ffc107;
 }
 
-
+/*Başlık Düzenlemeler*/
 h3.border-bottom {
     color: #1a1a1a;
     border-color: #ffc107 !important; 
@@ -21,28 +24,32 @@ h3.border-bottom {
     margin-top: 20px;
 }
 
+/*Profil Fotoğrafı Efektleri*/
 .rounded-circle {
     border: 5px solid white;
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
 }
 
+/*Mouse ile üzerine gelindiğinde*/
 .rounded-circle:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
-
+/*Liste Öğeleri (İlgi Alanları / Yetenekler)*/
 .list-group-item {
     background-color: transparent;
-    border-left: 4px solid #ffc107; 
+    border-left: 4px solid #ffc107;
     margin-bottom: 5px;
     transition: 0.2s;
 }
 
+/* Liste Öğeleri Etkileşim Ve Kayma Efektleri */
 .list-group-item:hover {
     background-color: #fff;
-    padding-left: 30px; 
+    padding-left: 30px;
 }
 
+/*Buton Tasarımları*/
 .btn-dark {
     background-color: #24292e;
     border: none;
@@ -50,7 +57,20 @@ h3.border-bottom {
     padding: 12px;
 }
 
+/* Buton Etkileşim Ve Hover (Üzerine Gelme) Efektleri */
 .btn-dark:hover {
-    background-color: #ffc107; 
+    background-color: #ffc107;
     color: #000;
 } 
+
+/* Sosyal Medya İkon Efektleri */
+.social-icon {
+    transition: 0.3s; /* Geçiş efektinin süresi */
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+}
+
+.social-icon:hover {
+    color: #ffc107 !important;
+    transform: translateY(-5px); 
+    display: inline-block; 
+}
