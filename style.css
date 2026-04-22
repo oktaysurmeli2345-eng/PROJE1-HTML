@@ -74,3 +74,37 @@ h3.border-bottom {
     transform: translateY(-5px); 
     display: inline-block; 
 }
+
+/* --- ŞEHRİM SAYFASI ÖZEL TASARIMLARI --- */
+
+/* Karşılama (Hero) Alanı - Kapak Fotoğrafı */
+.hero-section {
+    background-image: url('img/palandoken.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 500px; /* Çok uzun tutmadım ki kullanıcı hemen altındaki o güzel galeriyi görsün */
+}
+
+/* Hero Yazılarına Ekstra Gölge (Okunabilirliği artırır) */
+.hero-content h1, .hero-content h3, .hero-content p {
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
+}
+
+/* Şehir Kartları Hover Efekti (Dokunma Hissi) */
+.city-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px; /* Kartların köşelerini modern bir şekilde yuvarlattık */
+    overflow: hidden;
+}
+
+/* Fareyle Kartın Üzerine Gelindiğinde Olacaklar */
+.city-card:hover {
+    transform: translateY(-10px); /* Kartı 10 piksel havaya kaldırır */
+    box-shadow: 0 1.5rem 3rem rgba(0,0,0,.2) !important; /* Altına derin bir gölge verir */
+}
+
+/* İkon Renkleri İçin İnce Ayar */
+.hero-content hr {
+    height: 3px;
+    border-radius: 5px;
+}
