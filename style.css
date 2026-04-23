@@ -93,7 +93,7 @@ h3.border-bottom {
 /* Şehir Kartları Hover Efekti (Dokunma Hissi) */
 .city-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 12px; /* Kartların köşelerini modern bir şekilde yuvarlattık */
+    border-radius: 12px; /* Kartların köşelerini modern bir şekilde yuvarlattırır. */
     overflow: hidden;
 }
 
@@ -107,4 +107,24 @@ h3.border-bottom {
 .hero-content hr {
     height: 3px;
     border-radius: 5px;
+}
+
+/* =========================================
+   MİRASIMIZ SAYFASI KÜLTÜR PORTALI STİLLERİ
+   ========================================= */
+
+.portal-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: justify; /* Metinlerin sağdan ve soldan hizalı, dergi gibi görünmesini sağlar */
+}
+
+.portal-caption {
+    font-size: 0.75rem;
+    color: #777;
+    text-align: right;
+    margin-top: 0.5rem;
+    font-style: italic; /* Kaynakça yazılarını hafif eğik yaparak estetik katar */
 }
