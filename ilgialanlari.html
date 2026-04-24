@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlgi Alanlarım - Oktay Sürmeli</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="index.html">Oktay Sürmeli</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Hakkında</a></li>
+                        <li class="nav-item"><a class="nav-link" href="cv.html">Özgeçmiş</a></li>
+                        <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
+                        <li class="nav-item"><a class="nav-link" href="miras.html">Mirasımız</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="ilgialanlari.html">İlgi Alanlarım</a></li>
+                        <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+                        <li class="nav-item"><a class="nav-link text-warning fw-bold" href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-5 flex-grow-1 mb-5">
+
+        <section class="text-center mb-5">
+            <h1 class="display-5 fw-bold text-dark"><i class="fa-solid fa-clapperboard text-danger me-2"></i>Dünya
+                Sinema Kitaplığı</h1>
+            <p class="lead text-muted">OMDb API altyapısı ile milyonlarca film, dizi ve belgesel arasında canlı arama
+                yapın. <br> <small class="text-danger fw-bold">Not: Yabancı filmleri ararken orijinal İngilizce
+                    isimlerini kullanınız (Örn: Labirent yerine Maze Runner).</small></p>
+        </section>
+
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <div class="card shadow-sm border-0 bg-dark rounded-4 p-2">
+                    <div class="card-body p-2">
+                        <div class="input-group input-group-lg">
+                            <input type="text" id="aramaKutusu" class="form-control border-0 shadow-none"
+                                placeholder="Orijinal film adını yazın (Örn: Matrix, Maze Runner)...">
+                            <button class="btn btn-warning fw-bold px-4 rounded-3" id="aramaButonu" type="button">
+                                <i class="fa-solid fa-magnifying-glass me-2"></i>Ara
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sonucAlani"
+            class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
+            <div class="col-12 text-center text-muted py-5" id="beklemeMesaji">
+                <i class="fa-solid fa-film fa-4x mb-3 opacity-25"></i>
+                <h5>Herhangi bir film ismi yazıp Enter'a basın ya da Ara butonuna tıklayın.</h5>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4 mt-auto">
+        <div class="container">
+            <p class="mb-1 small">Oktay Sürmeli | Bilgisayar Mühendisliği Web Teknolojileri Projesi</p>
+            <small class="text-muted">&copy; 2026 Tüm Hakları Saklıdır.</small>
+        </div>
+    </footer>
+
+    <script>
+        const aramaButonu = document.getElementById('aramaButonu');
+        const aramaKutusu = document.getElementById('aramaKutusu');
+        const sonucAlani = document.getElementById('sonucAlani');
+
+        // Enter tuşu desteği
+        aramaKutusu.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                aramaButonu.click();
+            }
+        });
+
+        aramaButonu.addEventListener('click', function () {
+            const filmAdi = aramaKutusu.value.trim();
+
+            if (filmAdi.length < 2) {
+                alert("Lütfen en az 2 karakterden oluşan bir isim girin.");
+                return;
+            }
+
+            sonucAlani.innerHTML = '<div class="text-center py-5 w-100"><div class="spinner-grow text-warning" role="status"></div><p class="mt-3 fw-bold">Veritabanında kusursuz sonuçlar filtreleniyor...</p></div>';
+
+            // type=movie ile belgeselleri eliyorum
+            const apiAdresi = `https://www.omdbapi.com/?s=${filmAdi}&type=movie&apikey=2e50e626`;
+
+            fetch(apiAdresi)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.Response === "False") {
+                        sonucAlani.innerHTML = `<div class="alert alert-warning text-center w-100">Kusursuz sonuç bulunamadı. Kelimeyi doğru yazdığınızdan emin olun (Örn: Interstellar).</div>`;
+                        return;
+                    }
+
+                    sonucAlani.innerHTML = '';
+                    let gosterilenFilmSayisi = 0;
+
+                    data.Search.forEach((item, index) => {
+                        // Eğer API 'N/A' (Afiş Yok) gönderirse, bu filmi hiç ekleme
+                        if (item.Poster === "N/A") return;
+
+                        gosterilenFilmSayisi++;
+
+                        // Eğer resim linki kırık çıkarsa, bulunduğu tüm sütunu (col) DOM'dan siler!
+                        const filmKarti = `
+                            <div class="col movie-col" id="movie-${index}">
+                                <div class="card h-100 shadow-sm border-0 movie-card transition">
+                                    <div class="position-relative">
+                                        <img src="${item.Poster}" 
+                                             class="card-img-top" 
+                                             alt="${item.Title}" 
+                                             style="height: 350px; object-fit: cover;"
+                                             onerror="this.closest('.movie-col').remove();">
+                                        <span class="position-absolute top-0 end-0 badge bg-dark m-2 opacity-75">${item.Year}</span>
+                                    </div>
+                                    <div class="card-body text-center d-flex flex-column">
+                                        <h6 class="card-title fw-bold text-dark mb-3">${item.Title}</h6>
+                                        <div class="mt-auto">
+                                            <span class="badge bg-outline-secondary border text-muted mb-2">${item.Type.toUpperCase()}</span>
+                                            <a href="https://www.imdb.com/title/${item.imdbID}" target="_blank" class="btn btn-sm btn-dark w-100 rounded-pill">Detaylar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        sonucAlani.innerHTML += filmKarti;
+                    });
+
+                    // Eğer tüm sonuçlar elendiyse bilgi ver
+                    if (gosterilenFilmSayisi === 0) {
+                        sonucAlani.innerHTML = `<div class="alert alert-info text-center w-100">Bulunan sonuçların afiş kalitesi çok düşük olduğu için filtrelendi. Başka bir film aramayı deneyin.</div>`;
+                    }
+                })
+                .catch(error => {
+                    console.error("Hata oluştu:", error);
+                    sonucAlani.innerHTML = '<div class="alert alert-danger text-center w-100">API bağlantı hatası.</div>';
+                });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

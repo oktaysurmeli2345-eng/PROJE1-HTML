@@ -128,3 +128,24 @@ h3.border-bottom {
     margin-top: 0.5rem;
     font-style: italic; /* Kaynakça yazılarını hafif eğik yaparak estetik katar */
 }
+
+
+/* =========================================
+   İLGİ ALANLARIM SAYFASI (API) STİLLERİ
+   ========================================= */
+
+/* Film kartlarının üzerine gelince hafifçe yukarı kalkma animasyonu */
+.movie-card {
+    transition: all 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important; /* Kalktığında gölgeyi belirginleştirir */
+}
+
+/* Arama butonu üzerine gelince renk değişimi */
+.btn-warning:hover {
+    background-color: #ffca2c;
+    border-color: #ffc720;
+}
