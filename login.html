@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap - Oktay Sürmeli</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="index.html">Oktay Sürmeli</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Hakkında</a></li>
+                        <li class="nav-item"><a class="nav-link" href="cv.html">Özgeçmiş</a></li>
+                        <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
+                        <li class="nav-item"><a class="nav-link" href="miras.html">Mirasımız</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ilgialanlari.html">İlgi Alanlarım</a></li>
+                        <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+                        <li class="nav-item"><a class="nav-link active text-warning fw-bold" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-5 flex-grow-1 mb-5 d-flex align-items-center justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-dark text-white text-center py-4 rounded-top-4">
+                    <h3 class="mb-0"><i class="fa-solid fa-user-lock me-2 text-warning"></i>Sisteme Giriş</h3>
+                </div>
+                <div class="card-body p-4 p-md-5">
+
+                    <div id="hataKutusu" class="alert alert-danger d-none fw-bold text-center" role="alert"></div>
+
+                    <form id="loginFormu" action="login_sonuc.php" method="POST" onsubmit="return formKontrol(event)">
+
+                        <div class="mb-4">
+                            <label for="email" class="form-label fw-bold">Kullanıcı Adı (Öğrenci Numaralı E-posta)</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light"><i class="fa-solid fa-envelope"></i></span>
+                                <input type="text" class="form-control" id="email" name="email"
+                                    placeholder="Örn:okulno@sakarya.edu.tr">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="password" class="form-label fw-bold">Şifre (Öğrenci No)</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light"><i class="fa-solid fa-key"></i></span>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Şifrenizi giriniz">
+                                <button class="btn btn-outline-secondary" type="button" id="sifreGosterButonu"
+                                    onclick="sifreToggle()">
+                                    <i class="fa-solid fa-eye" id="gözIkonu"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <script>
+                            function sifreToggle() {
+                                const sifreInput = document.getElementById("password");
+                                const ikon = document.getElementById("gözIkonu");
+
+                                if (sifreInput.type === "password") {
+                                    sifreInput.type = "text";
+                                    ikon.classList.replace("fa-eye", "fa-eye-slash");
+                                } else {
+                                    sifreInput.type = "password";
+                                    ikon.classList.replace("fa-eye-slash", "fa-eye");
+                                }
+                            }
+                        </script>
+                        <div class="d-grid mt-5">
+                            <button type="submit" class="btn btn-warning btn-lg fw-bold text-dark">
+                                Giriş Yap <i class="fa-solid fa-right-to-bracket ms-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4 mt-auto">
+        <div class="container">
+            <p class="mb-1 small">Oktay Sürmeli | Bilgisayar Mühendisliği Web Teknolojileri Projesi</p>
+            <small class="text-muted">&copy; 2026 Tüm Hakları Saklıdır.</small>
+        </div>
+    </footer>
+
+    <script>
+        // URL'de PHP'den gelen bir hata kodu varsa yakala ve göster (Şartname kuralı: Hatalıysa mesaja yönlendir)
+        window.onload = function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('error')) {
+                const hataKutusu = document.getElementById('hataKutusu');
+                hataKutusu.innerHTML = "Hatalı giriş! E-posta veya şifre yanlış.";
+                hataKutusu.classList.remove('d-none');
+            }
+        };
+
+        function formKontrol(event) {
+            let email = document.getElementById('email').value.trim();
+            let password = document.getElementById('password').value.trim();
+            let hataKutusu = document.getElementById('hataKutusu');
+
+            // 1. Boş Alan Kontrolü
+            if (email === "" || password === "") {
+                hataKutusu.innerHTML = "Lütfen e-posta ve şifre alanlarını boş bırakmayınız!";
+                hataKutusu.classList.remove('d-none');
+                event.preventDefault(); // Formun gitmesini engeller
+                return false;
+            }
+
+            // 2. Mail Formatı Kontrolü
+            let emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailFormat.test(email)) {
+                hataKutusu.innerHTML = "Lütfen geçerli bir e-posta formatı giriniz!";
+                hataKutusu.classList.remove('d-none');
+                event.preventDefault();
+                return false;
+            }
+
+            return true; // Her şey tamamsa PHP'ye yolla
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
