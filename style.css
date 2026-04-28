@@ -1,151 +1,555 @@
+/* ============================================================
+   1. RENK PALETİ VE DEĞİŞKENLER
+   ============================================================ */
 
-/* Dış kaynak yazı tipi bağlantısı */
-/* Google Fonts servisinden 'Inter' yazı tipi ailesini (ince, normal ve kalın ağırlıklarıyla) projeye dahil eder. */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+:root {
+    --navy: #001B3A;
+    --silver: #D5DBDB;
+    --white: #FFFFFF;
+    --bg-light: #f8f9fa;
+}
 
-/*Genel Sayfa Ayarları*/
+/* ==========================================================
+   2. GENEL SAYFA AYARLARI (BODY)
+   Sayfanın arka plan rengini ve varsayılan yazı tipini belirler.
+========================================================== */
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: var(--bg-light);
+    /* Arka planı açık gri yapar */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Okunaklı ve modern bir font ailesi */
+    color: var(--navy);
+    /* Sayfadaki genel yazı rengini lacivert yapar */
 }
 
-/*Navigasyon Çubuğu*/
-.navbar {
-    background: linear-gradient(90deg, #1a1a1a 0%, #333333 100%) !important;
-    border-bottom: 2px solid #ffc107;
+/* ==========================================================
+   3. ÜST MENÜ (NAVBAR) AYARLARI
+   Sayfanın en üstündeki gezinme çubuğunun renklerini kontrol eder.
+========================================================== */
+.custom-navbar {
+    background-color: var(--navy) !important;
+    /* Navbar arka planını zorunlu olarak lacivert yapar */
 }
 
-/*Başlık Düzenlemeler*/
-h3.border-bottom {
-    color: #1a1a1a;
-    border-color: #ffc107 !important; 
-    font-weight: 700;
-    margin-top: 20px;
+.custom-navbar .nav-link {
+    color: var(--silver) !important;
+    /* Menüdeki linklerin rengini gümüş gri yapar */
+    transition: 0.3s ease;
+    /* Fareyle üzerine gelindiğinde renk değişimini yumuşatır */
 }
 
-/*Profil Fotoğrafı Efektleri*/
-.rounded-circle {
-    border: 5px solid white;
-    transition: transform 0.3s ease;
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+    color: var(--white) !important;
+    /* Linkin üzerine gelindiğinde veya aktif sayfadaysa beyaz yapar */
 }
 
-/*Mouse ile üzerine gelindiğinde*/
-.rounded-circle:hover {
-    transform: scale(1.05);
-}
-
-/*Liste Öğeleri (İlgi Alanları / Yetenekler)*/
-.list-group-item {
-    background-color: transparent;
-    border-left: 4px solid #ffc107;
-    margin-bottom: 5px;
-    transition: 0.2s;
-}
-
-/* Liste Öğeleri Etkileşim Ve Kayma Efektleri */
-.list-group-item:hover {
-    background-color: #fff;
-    padding-left: 30px;
-}
-
-/*Buton Tasarımları*/
-.btn-dark {
-    background-color: #24292e;
+/* ==========================================================
+   4. BUTON TASARIMLARI (LOGIN VE SOSYAL MEDYA)
+   Sayfadaki tıklanabilir butonların görünümünü ayarlar.
+========================================================== */
+/* Sağ üstteki Login butonu için ayarlar */
+.btn-silver {
+    background-color: var(--silver);
+    /* Arka planı gümüş gri */
+    color: var(--navy);
+    /* İçindeki yazıyı lacivert yapar */
+    font-weight: bold;
+    /* Yazıyı kalınlaştırır */
     border: none;
-    font-weight: 600;
-    padding: 12px;
+    /* Kenarlık çizgisini kaldırır */
+    transition: 0.3s ease;
+    /* Hover efektini yumuşatır */
 }
 
-/* Buton Etkileşim Ve Hover (Üzerine Gelme) Efektleri */
-.btn-dark:hover {
-    background-color: #ffc107;
-    color: #000;
-} 
-
-/* Sosyal Medya İkon Efektleri */
-.social-icon {
-    transition: 0.3s; /* Geçiş efektinin süresi */
-    text-decoration: none; /* Alt çizgiyi kaldırır */
+.btn-silver:hover {
+    background-color: var(--white);
+    /* Fareyle üstüne gelince arka planı beyaz yapar */
+    color: var(--navy);
 }
 
-.social-icon:hover {
-    color: #ffc107 !important;
-    transform: translateY(-5px); 
-    display: inline-block; 
+/*GitHub, LinkedIn, Instagram butonları için ayarlar */
+.btn-outline-dark {
+    border: 2px solid var(--navy);
+    /* Etrafına 2 piksellik lacivert çizgi çeker */
+    color: var(--navy);
+    /* İçindeki yazıyı ve ikonu lacivert yapar */
+    font-weight: 500;
+    /* Yazıyı orta kalınlıkta yapar */
+    background-color: transparent;
+    /* Arka planını şeffaf bırakır */
+    transition: 0.3s;
 }
 
-/* --- ŞEHRİM SAYFASI ÖZEL TASARIMLARI --- */
-
-/* Karşılama (Hero) Alanı - Kapak Fotoğrafı */
-.hero-section {
-    background-image: url('img/palandoken.jpg'); 
-    background-size: cover;
-    background-position: center;
-    height: 500px; /* Çok uzun tutmadım ki kullanıcı hemen altındaki o güzel galeriyi görsün */
+.btn-outline-dark:hover {
+    background-color: var(--navy);
+    /* Fareyle üstüne gelince arka plan lacivert dolar */
+    color: var(--white);
+    /* İçindeki yazı ve ikon beyaza döner */
 }
 
-/* Hero Yazılarına Ekstra Gölge (Okunabilirliği artırır) */
-.hero-content h1, .hero-content h3, .hero-content p {
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
+/* ==========================================================
+   6. METİN VE ÇİZGİ RENKLENDİRMELERİ (SAĞ SÜTUN)
+   Başlıkların, metinlerin ve aradaki dekoratif çizgilerin renkleri.
+========================================================== */
+/* Lacivert metin yazmak istediğimiz yerlerde kullanırız */
+.text-navy {
+    color: var(--navy) !important;
 }
 
-/* Şehir Kartları Hover Efekti (Dokunma Hissi) */
-.city-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 12px; /* Kartların köşelerini modern bir şekilde yuvarlattırır. */
-    overflow: hidden;
+/* Çizgileri lacivert yapmak istediğimiz yerlerde kullanırız */
+.border-navy {
+    border-color: var(--navy) !important;
 }
 
-/* Fareyle Kartın Üzerine Gelindiğinde Olacaklar */
-.city-card:hover {
-    transform: translateY(-10px); /* Kartı 10 piksel havaya kaldırır */
-    box-shadow: 0 1.5rem 3rem rgba(0,0,0,.2) !important; /* Altına derin bir gölge verir */
+/* ==========================================================
+   7. ÖZEL VİDEO KAPAĞI 
+   Videonun bozuk görünmesini engelleyen, resim üzerine
+   Play butonu ekleyen modern tasarım.
+========================================================== */
+.custom-video-wrapper {
+    position: relative;
+    display: block;
 }
 
-/* İkon Renkleri İçin İnce Ayar */
-.hero-content hr {
-    height: 3px;
-    border-radius: 5px;
-}
-
-/* =========================================
-   MİRASIMIZ SAYFASI KÜLTÜR PORTALI STİLLERİ
-   ========================================= */
-
-.portal-text {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #333;
-    margin-bottom: 1.5rem;
-    text-align: justify; /* Metinlerin sağdan ve soldan hizalı, dergi gibi görünmesini sağlar */
-}
-
-.portal-caption {
-    font-size: 0.75rem;
-    color: #777;
-    text-align: right;
-    margin-top: 0.5rem;
-    font-style: italic; /* Kaynakça yazılarını hafif eğik yaparak estetik katar */
-}
-
-
-/* =========================================
-   İLGİ ALANLARIM SAYFASI (API) STİLLERİ
-   ========================================= */
-
-/* Film kartlarının üzerine gelince hafifçe yukarı kalkma animasyonu */
-.movie-card {
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 27, 58, 0.3);
+    /* Lacivert tonlu hafif karanlık filtre */
     transition: all 0.3s ease;
 }
 
-.movie-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important; /* Kalktığında gölgeyi belirginleştirir */
+/* Fareyle üzerine gelince arka plan hafif kararır */
+.custom-video-wrapper:hover .video-overlay {
+    background-color: rgba(0, 27, 58, 0.6);
 }
 
-/* Arama butonu üzerine gelince renk değişimi */
-.btn-warning:hover {
-    background-color: #ffca2c;
-    border-color: #ffc720;
+/* Play Butonu Ayarları */
+.play-btn i {
+    font-size: 5rem;
+    /* İkonu büyütür */
+    transition: all 0.3s ease;
+}
+
+/* Fareyle üzerine gelince buton parlar ve büyür */
+.custom-video-wrapper:hover .play-btn i {
+    opacity: 1 !important;
+    transform: scale(1.1);
+}
+
+/*ÖZGEÇMİŞ*/
+
+/* Renkleri senin istediğin tona çektim */
+:root {
+    --navy: #001B3A;
+    --silver: #D5DBDB;
+}
+
+.cv-section-title {
+    border-left: 5px solid var(--navy);
+    /* Sarıdan laciverte döndü */
+    padding-left: 15px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    color: var(--navy);
+}
+
+.text-navy {
+    color: var(--navy) !important;
+}
+
+.bg-navy {
+    background-color: var(--navy) !important;
+    color: white !important;
+}
+
+.skill-badge {
+    transition: 0.3s;
+    cursor: default;
+    border: 1px solid var(--silver);
+}
+
+.skill-badge:hover {
+    transform: scale(1.1);
+    background-color: var(--silver) !important;
+    color: var(--navy) !important;
+}
+
+.progress-bar {
+    background-color: var(--navy) !important;
+}
+
+/* --- DEĞİŞKENLER --- */
+:root {
+    --navy: #001B3A;
+    --black: #000000;
+}
+
+/* --- GENEL --- */
+body {
+    background-color: #ffffff;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #333;
+}
+
+.fw-black {
+    font-weight: 900 !important;
+}
+
+/* --- NAVIGASYON --- */
+.custom-navbar {
+    background-color: var(--navy) !important;
+}
+
+/* --- Başlıklar --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--black) !important;
+    letter-spacing: -1px;
+}
+
+/* Sayfadaki tüm h2 (Ana başlıklar) ayarı */
+h2 {
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+/* --- DETAYLAR --- */
+.border-dark {
+    border-color: var(--black) !important;
+}
+
+main p {
+    line-height: 1.7;
+}
+
+aside h5 {
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+}
+
+
+/* ==========================================================
+   Profil Fotoğrafının Şekli
+========================================================== */
+:root {
+    --frame-navy: #001B3A;
+    --frame-silver: #D5DBDB;
+    --frame-size: 280px;
+    /* Boyutu buradan tek seferde ayarlayabailiriz. */
+}
+
+.tech-card-wrapper {
+    position: relative;
+    width: var(--frame-size);
+    height: var(--frame-size);
+    margin: 0 auto;
+}
+
+/* Şekli belirleyen ana yapı (Sol üst ve sağ alt kesik) */
+.tech-card-bg,
+.tech-card-main,
+.tech-card-photo {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%, 0% 15%);
+}
+
+/* 1. Arkadaki Gümüş Katman (Gölge derinliği verir) */
+.tech-card-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--frame-silver);
+    top: 6px;
+    left: 6px;
+    z-index: 1;
+}
+
+/* 2. Ana Lacivert Çerçeve */
+.tech-card-main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(28, 14, 56, 0.967);
+    z-index: 2;
+    padding: 4px;
+    /* Bu değer çerçeve kalınlığını belirler */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+/* 3. Fotoğraf Alanı */
+.tech-card-photo {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    overflow: hidden;
+}
+
+.tech-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* HOVER: Sadece hafif bir hareket */
+.tech-card-wrapper:hover .tech-card-main {
+    transform: translate(-4px, -4px);
+    /* Üzerine gelince hafifçe yükselir */
+}
+
+
+/*Yazıların Okunaklı OLması*/
+.carousel-caption {
+    /* Yarı şeffaf lacivert arka plan */
+    background: rgba(0, 27, 58, 0.7);
+    /* Kenarları yumuşat */
+    border-radius: 15px;
+    /* Yazı ve kutu arasına nefes aldır */
+    padding: 20px;
+    /* Yazıyı her zaman beyaz yap */
+    color: #ffffff !important;
+    /* Kutuyu biraz aşağıya sabitle */
+    bottom: 40px;
+    /* Arkadaki görseli hafif bulanıklaştır (Modern dokunuş) */
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.carousel-caption h5 {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffc107;
+    /* Başlık sarı/altın tonu olabilir, çok şık durur */
+}
+
+/*Mirasımız*/
+
+/* 1. DEĞİŞKENLER VE ANA AYARLAR (Daha önceki :root bloğunu burayla güncelle) */
+:root {
+    --navy: #001B3A;
+    --silver: #D5DBDB;
+    --white: #FFFFFF;
+    --bg-light: #f8f9fa;
+    --accent: #d9534f;
+    /* Konum ikonu için kırmızı tonu */
+}
+
+body {
+    background-color: var(--bg-light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--navy);
+    line-height: 1.7;
+}
+
+/* 2. NAVBAR (Önceki tutarlılık ayarlarımız) */
+.navbar {
+    background-color: var(--navy) !important;
+    padding: 15px 0;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-link.active {
+    font-weight: 800 !important;
+    border-bottom: 2px solid var(--white);
+}
+
+/* 3. MAKALELER VE METİN YAPISI (portal-text) */
+.portal-text {
+    font-size: 1.1rem;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+    color: #34495e;
+}
+
+.portal-text strong {
+    color: var(--navy);
+}
+
+/* 4. GÖRSELLER VE CAPTIONLAR */
+figure img {
+    transition: transform 0.5s ease;
+    border: 1px solid var(--silver);
+}
+
+figure img:hover {
+    transform: scale(1.01);
+    /* Hafif bir derinlik efekti */
+}
+
+.portal-caption {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    font-style: italic;
+    margin-top: 10px;
+    text-align: right;
+    border-right: 3px solid var(--silver);
+    padding-right: 10px;
+}
+
+/* 5. YAN PANEL (Aside - Konum Bilgileri) */
+aside .card {
+    border-radius: 15px;
+    border-left: 5px solid var(--navy) !important;
+    /* Sol tarafa dadaş ciddiyeti */
+}
+
+aside h4 {
+    font-weight: 800;
+    color: var(--navy);
+}
+
+.badge {
+    padding: 8px 12px;
+    font-weight: 500;
+    background-color: var(--navy) !important;
+}
+
+/* 6. FOOTER */
+footer {
+    background-color: var(--navy) !important;
+    border-top: 4px solid var(--silver);
+}
+
+/* 7. MOBİL UYUMLULUK */
+@media (max-width: 991px) {
+    aside {
+        margin-top: 3rem;
+    }
+}
+
+
+/*İlgi Alanları*/
+
+/* 1. SAYFA GENEL ARKAPLANI VE BAŞLIK */
+.ilgialanlari-bg {
+    background: linear-gradient(180deg, #ffffff 0%, var(--bg-light) 100%);
+    min-height: 100vh;
+}
+
+.sinema-baslik {
+    color: var(--navy);
+    letter-spacing: -1px;
+    position: relative;
+    display: inline-block;
+}
+
+.sinema-baslik i {
+    color: var(--navy) !important;
+    /* Kırmızıyı laciverte çevirdik */
+    opacity: 0.8;
+}
+
+/* 2. ARAMA KONTEYNERI (Siyah Kutuyu Değiştirdik) */
+.search-wrapper {
+    background: var(--navy);
+    /* Lacivert arkaplan */
+    padding: 10px;
+    border-radius: 50px;
+    /* Tam yuvarlak hatlar */
+    box-shadow: 0 10px 30px rgba(0, 27, 58, 0.2);
+    border: 2px solid var(--silver);
+}
+
+#aramaKutusu {
+    background: transparent;
+    color: white !important;
+    border: none;
+    padding-left: 25px;
+    font-size: 1.1rem;
+}
+
+#aramaKutusu::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* 3. ARAMA BUTONU (Altın Dokunuşu) */
+#aramaButonu {
+    background-color: #f1c40f;
+    /* Daha kaliteli bir altın sarısı */
+    color: var(--navy);
+    border: none;
+    border-radius: 40px;
+    font-weight: 800;
+    padding: 12px 35px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+#aramaButonu:hover {
+    background-color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
+}
+
+/* 4. BEKLEME MESAJI VE IKON */
+#beklemeMesaji {
+    border: 2px dashed var(--silver);
+    border-radius: 20px;
+    margin-top: 50px;
+    padding: 60px;
+    background-color: white;
+}
+
+#beklemeMesaji i {
+    color: var(--navy);
+}
+
+
+/* BAŞLIK VE İKON ÖZELLEŞTİRME */
+.sinema-ana-baslik {
+    color: var(--navy); /* Senin kurumsal lacivertin */
+    letter-spacing: 2px; /* Harf arasını biraz açtık, daha elit durur */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+}
+
+.sinema-ikon {
+    color: #f1c40f; /* Arama butonundaki altın sarısı ile eşitledik */
+    filter: drop-shadow(2px 2px 2px rgba(0, 27, 58, 0.2));
+    transform: rotate(-5deg); /* Hafif eğiklik, sinema klaketine ruh katar */
+}
+
+/* BAŞLIĞIN ALTINDAKİ TASARIMSAL ÇİZGİ */
+.baslik-alt-cizgi {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--navy), transparent);
+    border-radius: 2px;
+}
+
+/* Küçük bir hover efekti: Başlığın üstüne gelince ikon canlansın */
+.sinema-ana-baslik:hover .sinema-ikon {
+    animation: clapAnim 0.5s ease-in-out;
+}
+
+@keyframes clapAnim {
+    0% { transform: rotate(-5deg); }
+    50% { transform: rotate(10deg); }
+    100% { transform: rotate(-5deg); }
+}
+
+/* Tür etiketini daha şık yapalım */
+.movie-card .badge {
+    background-color: transparent !important;
+    color: var(--navy) !important;
+    border: 1px solid var(--silver) !important;
+    font-weight: 400;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    opacity: 0.6;
 }

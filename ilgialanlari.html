@@ -13,21 +13,38 @@
 <body class="d-flex flex-column min-vh-100 bg-light">
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <nav class="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top">
             <div class="container">
-                <a class="navbar-brand fw-bold" href="index.html">Oktay Sürmeli</a>
+                <a class="navbar-brand fw-bold" href="hakkimda.html">OKTAY SÜRMELİ</a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Hakkında</a></li>
-                        <li class="nav-item"><a class="nav-link" href="cv.html">Özgeçmiş</a></li>
-                        <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
-                        <li class="nav-item"><a class="nav-link" href="miras.html">Mirasımız</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="ilgialanlari.html">İlgi Alanlarım</a></li>
-                        <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
-                        <li class="nav-item"><a class="nav-link text-warning fw-bold" href="login.html">Login</a></li>
+                    <ul class="navbar-nav ms-auto small align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="hakkimda.html">Hakkımda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ozgecmis.html">Özgeçmiş</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sehrim.html">Şehrim</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mirasimiz.html">Mirasımız</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="ilgialanlari.html">İlgi Alanları</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="iletisim.html">İletişim</a>
+                        </li>
+
+                        <li class="nav-item ms-lg-3">
+                            <a class="btn btn-light btn-sm fw-bold px-3 text-dark shadow-sm" href="login.html">Login</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -37,9 +54,20 @@
     <main class="container mt-5 flex-grow-1 mb-5">
 
         <section class="text-center mb-5">
-            <h1 class="display-5 fw-bold text-dark"><i class="fa-solid fa-clapperboard text-danger me-2"></i>Dünya
-                Sinema Kitaplığı</h1>
-            <p class="lead text-muted">OMDb API altyapısı ile milyonlarca film, dizi ve belgesel arasında canlı arama
+            <section class="text-center mb-5">
+                <h1 class="display-5 fw-black sinema-ana-baslik">
+                    <i class="fa-solid fa-clapperboard sinema-ikon me-2"></i>
+                    <span>DÜNYA SİNEMA KİTAPLIĞI</span>
+                </h1>
+
+                <div class="baslik-alt-cizgi mx-auto mt-2"></div>
+
+                <p class="lead text-secondary mt-3">
+                    OMDb API altyapısı ile milyonlarca film arasında <span class="fw-bold text-dark">canlı arama</span>
+                    yapın.
+                </p>
+            </section>
+            <p class="lead text-muted">IMDB API altyapısı ile milyonlarca film, dizi ve belgesel arasında canlı arama
                 yapın. <br> <small class="text-danger fw-bold">Not: Yabancı filmleri ararken orijinal İngilizce
                     isimlerini kullanınız (Örn: Labirent yerine Maze Runner).</small></p>
         </section>
@@ -47,14 +75,10 @@
         <div class="row justify-content-center mb-5">
             <div class="col-md-8">
                 <div class="card shadow-sm border-0 bg-dark rounded-4 p-2">
-                    <div class="card-body p-2">
-                        <div class="input-group input-group-lg">
-                            <input type="text" id="aramaKutusu" class="form-control border-0 shadow-none"
-                                placeholder="Orijinal film adını yazın (Örn: Matrix, Maze Runner)...">
-                            <button class="btn btn-warning fw-bold px-4 rounded-3" id="aramaButonu" type="button">
-                                <i class="fa-solid fa-magnifying-glass me-2"></i>Ara
-                            </button>
-                        </div>
+                    <div class="search-wrapper d-flex align-items-center shadow-lg">
+                        <input type="text" id="aramaKutusu" class="form-control shadow-none"
+                            placeholder="Film adını yazın...">
+                        <button class="btn" id="aramaButonu" type="button">Ara</button>
                     </div>
                 </div>
             </div>
@@ -100,7 +124,7 @@
             sonucAlani.innerHTML = '<div class="text-center py-5 w-100"><div class="spinner-grow text-warning" role="status"></div><p class="mt-3 fw-bold">Veritabanında kusursuz sonuçlar filtreleniyor...</p></div>';
 
             // type=movie ile belgeselleri eliyorum
-            const apiAdresi = `https://www.omdbapi.com/?s=${filmAdi}&type=movie&apikey=2e50e626`;
+            const apiAdresi = `https://www.omdbapi.com/?s=${filmAdi}&apikey=2e50e626`;
 
             fetch(apiAdresi)
                 .then(response => response.json())
