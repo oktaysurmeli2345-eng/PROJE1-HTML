@@ -11,47 +11,49 @@
 </head>
 
 <body>
-
+    <!-- Bootstrap Navbar kullanılarak mobil uyumlu ve sayfada kayarken üstte sabit kalan (sticky-top) menü oluşturuldu. -->
     <nav class="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="hakkimda.html">OKTAY SÜRMELİ</a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="hakkimda.html">OKTAY SÜRMELİ</a>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto small align-items-center">
-                <li class="nav-item">
-                    <a class="nav-link active" href="hakkimda.html">Hakkımda</a> </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ozgecmis.html">Özgeçmiş</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="sehrim.html">Şehrim</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="mirasimiz.html">Mirasımız</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ilgialanlari.html">İlgi Alanları</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="iletisim.html">İletişim</a>
-                </li>
-                
-                <li class="nav-item ms-lg-3">
-                    <a class="btn btn-light btn-sm fw-bold px-3 text-dark shadow-sm" href="login.html">Login</a>
-                </li>
-            </ul>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto small align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="hakkimda.html">Hakkımda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ozgecmis.html">Özgeçmiş</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sehrim.html">Şehrim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mirasimiz.html">Mirasımız</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ilgialanlari.html">İlgi Alanları</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="iletisim.html">İletişim</a>
+                    </li>
+
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-light btn-sm fw-bold px-3 text-dark shadow-sm" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <main class="py-5">
         <div class="container">
             <div class="row">
-
+                <!-- Bootstrap Grid sistemi (col-lg-4) ile ekranın 3'te 1'ini kaplayan responsive sol profil sütunu oluşturuldu. -->
+                <!-- <aside </aside> ana içeriği tamamlayan bir kenar çubuğu olduğunu bildirir.-->
                 <aside class="col-lg-4 text-center mb-5 pe-lg-4">
                     <div class="p-3">
                         <div class="profile-frame-wrapper mb-4">
@@ -68,7 +70,7 @@
 
                                     <h3 class="fw-bold text-navy mb-1">Oktay Sürmeli</h3>
                                     <p class="text-secondary mb-4">Bilgisayar Mühendisliği Öğrencisi</p>
-
+                                    <!-- Dış bağlantılar FontAwesome ikonları ile güzelleştirildi ve UX için target="_blank" parametresi eklendi. -->
                                     <div class="d-grid gap-2 mb-5">
                                         <a href="https://github.com/oktaysurmeli2345-eng" target="_blank"
                                             class="btn btn-outline-dark shadow-sm">
@@ -83,25 +85,31 @@
                                             <i class="fa-brands fa-instagram me-2"></i>Instagram Hesabım
                                         </a>
                                     </div>
-
+                                    <!-- Bootstrap utility sınıfları (shadow, rounded, border) kullanılarak ilgi alanları kartı oluşturuldu. -->
                                     <div
                                         class="text-start p-4 rounded-4 shadow-sm border border-secondary border-opacity-10 bg-white">
                                         <h3 class="fw-bold text-navy mb-3 border-bottom pb-2">İlgi Alanlarım</h3>
                                         <ul class="list-unstyled text-secondary mb-0"
                                             style="font-size: 0.95rem; line-height: 1.8;">
-                                            <li><i class="fa-solid fa-clover text-navy me-2"></i>Voleybol & Masa Tenisi</li>
-                                            <li><i class="fa-solid fa-clover text-navy me-2"></i>Yazılım Geliştirme (C# ve Web)</li>
-                                            <li><i class="fa-solid fa-clover text-navy me-2"></i>Finans & Yatırım Fonları</li>
-                                            <li><i class="fa-solid fa-clover text-navy me-2"></i>Doğa Yürüyüşleri & Gezi</li>
-                                            <li><i class="fa-solid fa-clover text-navy me-2"></i>Türkiye ve Dünya'yı Gezmek</li>
+                                            <li><i class="fa-solid fa-clover text-navy me-2"></i>Voleybol & Masa Tenisi
+                                            </li>
+                                            <li><i class="fa-solid fa-clover text-navy me-2"></i>Yazılım Geliştirme (C#
+                                                ve Web)</li>
+                                            <li><i class="fa-solid fa-clover text-navy me-2"></i>Finans & Yatırım
+                                                Fonları</li>
+                                            <li><i class="fa-solid fa-clover text-navy me-2"></i>Doğa Yürüyüşleri & Gezi
+                                            </li>
+                                            <li><i class="fa-solid fa-clover text-navy me-2"></i>Türkiye ve Dünya'yı
+                                                Gezmek</li>
                                             <li><i class="fa-solid fa-clover text-navy me-2"></i>Kitap Okumak</li>
                                             <li><i class="fa-solid fa-clover text-navy me-2"></i>Balık Tutmak</li>
-                                            <li><i class="fa-solid fa-clover text-navy me-2"></i>Yapay Zeka API Entegrasyonları</li>
+                                            <li><i class="fa-solid fa-clover text-navy me-2"></i>Yapay Zeka API
+                                                Entegrasyonları</li>
                                         </ul>
                                     </div>
                                 </div>
                 </aside>
-
+                <!-- Burada da kendimi tanımlarken <p>'ler ile daha güzel görünmesini sağladım'-->
                 <section class="col-lg-8 ps-lg-4">
 
                     <div class="mb-5">
@@ -127,12 +135,12 @@
                             şekillendiren bir mühendis adayıyım.
                         </p>
                     </div>
-
+                    <!-- border-start ve fst-italic sınıfları kullanılarak metne alıntı vurgusu kazandırıldı ve görsel derinlik sağlandı. -->
                     <div class="mt-5 mb-5">
                         <p class="fst-italic text-navy fw-bold mb-3 border-start border-3 border-navy ps-3">
                             "Köklerimin ait olduğu o yüksek, yalın ve vakur coğrafya: Karayazı."
                         </p>
-
+                        <!-- Bootstrap ratio-16x9 sınıfıyla responsive (esnek) video alanı ve üzerine ortalanmış bir oynatma ikonu (overlay) eklendi. -->
                         <div
                             class="custom-video-wrapper shadow-sm rounded-4 overflow-hidden border border-secondary border-opacity-25 position-relative ratio ratio-16x9">
 
@@ -158,10 +166,11 @@
         </div>
         </div>
     </main>
+    <!-- Sayfa alt bilgi alanı (footer) semantik etiketle tanımlanmış ve border-top ile görsel olarak ayrılmıştır. -->
     <footer class="py-4 text-center border-top bg-white">
         <p class="text-secondary mb-0">© 2026 Oktay Sürmeli - Tüm Hakları Saklıdır.</p>
     </footer>
-
+    <!-- Bootstrap bileşenlerinin (navbar toggler, dropdown vb.) etkileşimli çalışması için gerekli JS kütüphanesi. -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

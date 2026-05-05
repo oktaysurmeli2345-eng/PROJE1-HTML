@@ -28,10 +28,10 @@
                     
                     <div class="card-body p-4">
                         <?php
-                        // Veri formdan (POST ile) geldiyse işlemleri yap
+                        // Formun POST metoduyla gercekten gonderilip gonderilmedigini kontrol ediyoruz.
                         if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             
-                            // Güvenlik: htmlspecialchars ile XSS açıklarını kapatıyoruz (Hocadan ekstra puan getirir)
+                            // Guvenlik: htmlspecialchars ile kullanicidan gelen HTML kodlarini etkisiz hale getirerek XSS saldirilarini onluyoruz.
                             $adSoyad = htmlspecialchars($_POST['adSoyad']);
                             $email = htmlspecialchars($_POST['email']);
                             $telefon = htmlspecialchars($_POST['telefon']);
@@ -39,7 +39,7 @@
                             $cinsiyet = isset($_POST['cinsiyet']) ? htmlspecialchars($_POST['cinsiyet']) : "Belirtilmedi";
                             $mesaj = htmlspecialchars($_POST['mesaj']);
                             
-                            // Checkbox (Dizi olarak gelir)
+                            // Birden fazla secilebilen checkbox verilerini (dizi), aralarina virgul koyarak tek bir metne donusturuyoruz.
                             if (isset($_POST['iletisimTercihi'])) {
                                 $tercihler = implode(", ", $_POST['iletisimTercihi']);
                                 $tercihler = htmlspecialchars($tercihler);
@@ -47,7 +47,7 @@
                                 $tercihler = "Tercih belirtilmedi";
                             }
 
-                            // Ekrana Tablo Şeklinde Yazdırma
+                            // Ekrana tablo şeklinde yazdırmayı sağlıyoruz
                             echo "<table class='table table-bordered table-striped mt-3'>";
                             echo "<tbody>";
                             echo "<tr><th class='w-25 text-end'>Ad Soyad:</th><td>$adSoyad</td></tr>";
@@ -61,11 +61,12 @@
                             echo "</table>";
 
                         } else {
-                            // Dosyaya doğrudan linkle girilmeye çalışılırsa uyarı ver
+                            // Form doldurulmadan bu URL'ye ulasmaya calisanlara hata mesaji gosteriyoruz(alert danger uyarısı).
                             echo "<div class='alert alert-danger text-center'>Bu sayfaya doğrudan erişim izni yoktur. Lütfen iletişim formunu kullanın.</div>";
                         }
                         ?>
                     </div>
+                    <!-- Kullanici deneyimi (UX) acisindan, islem bittikten sonra ana sayfaya kolayca donusu saglayan navigasyon butonu. -->
                     <div class="card-footer bg-white text-center py-3 rounded-bottom-4">
                         <a href="iletisim.html" class="btn btn-outline-dark">Yeni Mesaj Gönder</a>
                     </div>

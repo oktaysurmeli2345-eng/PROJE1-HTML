@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 } else {
-    // Sayfaya direkt linkle girmeye çalışanları login'e at
+    // Sayfaya direkt linkle girmeye çalışanları login'e atar.
     header("Location: login.html");
     exit();
 }

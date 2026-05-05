@@ -20,7 +20,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                <!--Burada da her sayfada değiştirmemiz gereken active'yi unutmuyoruz(nav-link active).-->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto small align-items-center">
                         <li class="nav-item">
@@ -62,9 +62,9 @@
                             iletişime geçebilirsiniz.</p>
                     </div>
                     <div class="card-body p-4 p-md-5" id="iletisimUygulamasi">
-
+                        <!-- JavaScript veya Vue.js ile form dogrulama hatalarini dinamik olarak gostermek icin kullanilan alan. -->
                         <div id="hataKutusu" class="alert alert-danger d-none fw-bold" role="alert"></div>
-
+                        <!-- Veriler PHP tarafina POST metoduyla guvenli bir sekilde iletilir. -->
                         <form id="iletisimFormu" action="iletisim_sonuc.php" method="POST">
 
                             <div class="mb-3">
@@ -73,7 +73,7 @@
                                 <input type="text" class="form-control" id="adSoyad" name="adSoyad"
                                     placeholder="Adınızı giriniz">
                             </div>
-
+                            <!-- Bootstrap Grid yapisi: Inputlar masaustunde (md) yan yana, mobilde alt alta listelenir. -->
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="email" class="form-label fw-bold">E-posta Adresiniz <span
@@ -88,7 +88,7 @@
                                         placeholder="Sadece rakam (Örn: 05551234567)">
                                 </div>
                             </div>
-
+                            <!-- PHP tarafında karmaşa çıkmasın diye veriyi burada standart hale getirdim; kullanıcı sadece bu listeden seçebilecek. -->
                             <div class="mb-3">
                                 <label for="konu" class="form-label fw-bold">İletişim Konusu <span
                                         class="text-danger">*</span></label>
@@ -99,7 +99,7 @@
                                     <option value="Diger">Diğer</option>
                                 </select>
                             </div>
-
+                            <!-- Tekil secim yapilmasi gereken veriler icin radio buton yapisi kullanıldı, 'name' özniteliği ile grup mantigi kurulmustur. -->
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label class="form-label fw-bold d-block">Cinsiyet <span
@@ -115,29 +115,32 @@
                                         <label class="form-check-label" for="kadin">Kadın</label>
                                     </div>
                                 </div>
-
+                              <!-- Grid Yapılandırması: Form elemanı, büyük ekranlarda sayfa genişliğinin yarısını (6/12) kaplayacak şekilde responsive olarak ayarlanmıştır. -->
                                 <div class="col-md-6">
                                     <label class="form-label fw-bold d-block">Nasıl Ulaşalım?</label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="iletisimTercihi[]"
-                                            value="Mail" id="tercihMail">
+                                <!-- Veri Yönetimi: 'name' özniteliğindeki dizi (array) yapısı, birden fazla seçimin PHP tarafında kayıpsız işlenmesine olanak tanır. -->
+                                        <input class="form-check-input" type="checkbox" name="iletisimTercihi[]" value="Mail" id="tercihMail">
                                         <label class="form-check-label" for="tercihMail">Mail ile dönüş yapılsın</label>
                                     </div>
+                                <!-- Aynı 'name' değerine sahip checkbox elemanları, PHP tarafında 'iletisimTercihi' dizisinin (array) birer indisi olarak karşılanır.-->
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="iletisimTercihi[]"
                                             value="Telefon" id="tercihTel">
+                                <!-- Etiketleme Mantığı: 'id' üzerinden kurulan bağlantı, hem ekran okuyucular için erişilebilirlik sağlar hem de tıklama alanını genişletir. -->
                                         <label class="form-check-label" for="tercihTel">Telefon ile aransın</label>
                                     </div>
                                 </div>
                             </div>
-
+                            <!-- Veri Tipi: Kullanıcının çok satırlı metin girişi yapabilmesi için 'input' yerine 'textarea' bileşeni tercih edilmiştir. -->
                             <div class="mb-4">
                                 <label for="mesaj" class="form-label fw-bold">Mesajınız <span
                                         class="text-danger">*</span></label>
+                            <!-- Ergonomi: 'rows="4"' parametresi ile alanın başlangıç yüksekliği kullanıcı deneyimi (UX) gözetilerek optimize edilmiştir. -->
                                 <textarea class="form-control" id="mesaj" name="mesaj" rows="4"
                                     placeholder="Mesajınızı buraya yazabilirsiniz..."></textarea>
                             </div>
-
+                            <!-- Burada da veri doğrulama süreçlerini Native JS ve Vue.js üzerinden simüle eden, responsive yapıdaki fonksiyonel buton grubu. -->
                             <hr class="mb-4">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                                 <button type="button" class="btn btn-outline-dark btn-lg px-4 me-md-2" id="btnNative"
@@ -171,12 +174,13 @@
     </footer>
 
     <script>
+            // DOM Manipülasyonu: Hata mesajlarını temizleyerek arayüzü (UI) başlangıç durumuna getirir.
         function temizleHatalari() {
             const hataKutusu = document.getElementById('hataKutusu');
             hataKutusu.classList.add('d-none');
             hataKutusu.innerHTML = '';
         }
-
+        // Veri bütünlüğünü sağlamak için Regex ve mantıksal kontrolleri yürütür.
         function dogrulaNativeJS() {
             temizleHatalari();
             let hatalar = [];
@@ -193,30 +197,32 @@
             if (ad === "" || email === "" || tel === "" || mesaj === "") hatalar.push("- Lütfen zorunlu tüm metin alanlarını doldurunuz.");
             if (konu === "Seciniz") hatalar.push("- Lütfen bir iletişim konusu seçiniz.");
             if (!cinsiyet) hatalar.push("- Lütfen cinsiyet belirtiniz.");
-
+            //  E-posta ve telefon formatlarının doğruluğunu kontrol eder.
             let emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (email !== "" && !emailFormat.test(email)) hatalar.push("- Geçerli bir e-posta giriniz.");
 
             let telFormat = /^[0-9]{10,11}$/;
             if (tel !== "" && !telFormat.test(tel)) hatalar.push("- Telefon sadece rakam (10-11 hane) olmalıdır.");
-
+            //Dizi (errors array) doluluğuna göre form gönderimini engeller veya onaylar.
             if (hatalar.length > 0) {
                 hataKutusu.innerHTML = "<strong>Native JS Hatası:</strong><br>" + hatalar.join("<br>");
                 hataKutusu.className = 'alert alert-danger fw-bold';
             } else {
-                formID.submit();
+                formID.submit();// Sunucu tarafına (PHP) veri gönderimini tetikler.
             }
         }
     </script>
 
     <script>
         try {
-            const { createApp } = Vue;
+            const { createApp } = Vue;// Vue 3 kütüphanesinden uygulama oluşturma fonksiyonu deconstruct edildi.
             createApp({
                 methods: {
+                    // Framework tabanlı doğrulama: Vue metodları içerisinde form kontrol mantığı yürütülür.
                     dogrulaVueJS() {
                         temizleHatalari();
                         let hatalarVue = [];
+                        // DOM Erişimi: Vue instance içerisinden ilgili form bileşenlerine erişim sağlanır.
                         const formID = document.getElementById('iletisimFormu');
                         const hataKutusu = document.getElementById('hataKutusu');
 
@@ -232,16 +238,16 @@
                         if (!cinsiyet) hatalarVue.push("- (Vue) Cinsiyet alanı zorunludur.");
                         if (email && !email.includes('@')) hatalarVue.push("- (Vue) E-posta '@' içermelidir.");
                         if (tel && (isNaN(tel) || tel.length < 10)) hatalarVue.push("- (Vue) Telefon sadece sayı ve min 10 hane olmalı.");
-
+                        //Doğrulama mantığı
                         if (hatalarVue.length > 0) {
                             hataKutusu.innerHTML = "<strong>Vue.js Hatası:</strong><br>" + hatalarVue.join("<br>");
                             hataKutusu.className = 'alert alert-warning text-dark fw-bold';
                         } else {
-                            formID.submit();
+                            formID.submit();// Başarılı doğrulama sonrası form sunucuya iletilir.
                         }
                     }
                 }
-            }).mount('#iletisimUygulamasi');
+            }).mount('#iletisimUygulamasi');// Vue uygulaması, ID'si 'iletisimUygulamasi' olan kapsayıcıya bağlanır.
         } catch (error) {
             console.log("Vue.js bağlantısı kurulamadı.");
         }
