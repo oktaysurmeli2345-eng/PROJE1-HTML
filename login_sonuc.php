@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p class="lead mt-3 text-secondary">Sisteme başarıyla giriş yaptınız.</p>
                 <a href="hakkimda.html" class="btn btn-outline-light mt-4 px-4 rounded-pill">Siteye Dön</a>
             </div>
-        </body>
+        </body> 
         </html>
 <?php
     } else {
