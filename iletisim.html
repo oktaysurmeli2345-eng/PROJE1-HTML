@@ -174,13 +174,23 @@
     </footer>
 
     <script>
-            // DOM Manipülasyonu: Hata mesajlarını temizleyerek arayüzü (UI) başlangıç durumuna getirir.
+
+    // document.getElementById:Bu komut JavaScript'in HTML'deki kutulara erişimini sağlar . "Git ve bana 'adSoyad' ID'li kutunun içindeki yazıyı getir" der-->        
+    /*Kullanıcı formu her gönderdiğinde önceki denemeden kalan hataların ekranda birikmemesi gerekir. Bu fonksiyon ile önce hata kutusunu DOM üzerinden yakalayıp, 
+Bootstrap'in d-none sınıfıyla gizliyorum ve içindeki innerHTML verisini boşaltarak arayüzü başlangıç durumuna getiriyorum*/
         function temizleHatalari() {
             const hataKutusu = document.getElementById('hataKutusu');
             hataKutusu.classList.add('d-none');
             hataKutusu.innerHTML = '';
         }
-        // Veri bütünlüğünü sağlamak için Regex ve mantıksal kontrolleri yürütür.
+
+  /*Bu kısım biraz fazla açıklama istese de yazacağım hihihi(ilerde unutamaaaam), Client-side Validation (istemci taraflı doğrulama) ile sunucu yükünü azaltıp kullanıcı deneyimini (UX) 
+  ve veri bütünlüğünü en üst seviyede tutmaktır. Bu amaçla, hem Native JS hem de Vue.js 3 framework'ünü kullanarak, 
+  DOM üzerindeki verilere getElementById ile erişip mantıksal kontrolleri if bloklarıyla, teknik format kontrollerini ise 
+  Regex süzgeçleriyle gerçekleştirdim. Tespit edilen tüm hataları dinamik bir Dizi (Array) içerisinde toplayıp, Bootstrap'in 
+  alert ve d-none sınıflarıyla kullanıcıya anlık görsel geri bildirim vererek, formun ancak tüm kriterler sağlandığında submit() edilmesini 
+  sağlayan profesyonel bir kontrol mekanizması inşa ettim.*/
+  //trim(): Kullanıcının yanlışlıkla bıraktığı boşlukları siler.
         function dogrulaNativeJS() {
             temizleHatalari();
             let hatalar = [];
@@ -213,6 +223,10 @@
         }
     </script>
 
+
+<!--Tüm doğrulama mantığı createApp ile bir paket haline getirilir, bu da kodun daha düzenli ve modüler olmasını sağlar.
+En büyük farkı .mount('#iletisimUygulamasi') kısmıdır; bu sayede JavaScript kodunun sadece belirli bir HTML alanına hükmetmesini sağlayarak çakışmaları önlerimm.
+try-catch bloğu kullanarak, Vue kütüphanesinde bir sorun çıksa bile sistemin çökmemesini ve hata mesajı vermesini sağladım.-->
     <script>
         try {
             const { createApp } = Vue;// Vue 3 kütüphanesinden uygulama oluşturma fonksiyonu deconstruct edildi.
@@ -252,7 +266,7 @@
             console.log("Vue.js bağlantısı kurulamadı.");
         }
     </script>
-
+<!--Sitemin tasarımı yine güzel görünürdü ama menülerim açılmazdı ve butonlarım hiçbir tepki vermezdi; yani sistem hareketsiz kalırdı.Bu yüzden eklemek istedim - _ - -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

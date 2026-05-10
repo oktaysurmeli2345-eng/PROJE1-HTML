@@ -1,3 +1,18 @@
+<!--İlk olarak $_POST ile gelen e-posta ve şifreyi alıyorum. trim() ile gereksiz boşlukları temizleyip, htmlspecialchars() 
+ile veriyi sterilize ederek sunucu tarafında güvenliği sağlıyorum.
+
+Sadece arayüzde (HTML) değil, sunucu tarafında da empty() kontrolü yaparak, veri gelmemesi durumunda kullanıcıyı anında 
+header() fonksiyonuyla geri yönlendiriyorum.
+
+Kod içerisinde öğrenci numaramı (b251210106) baz alan bir doğrulama algoritması kurdum. Girilen e-postanın ve şifrenin, 
+belirlenen bu standartlarla (öğrenci numarası ve uzantısı) tam uyum sağlamasını bekliyorum.
+
+Eğer bilgiler hatalıysa, URL kısmına ?durum=hata parametresini ekleyerek kullanıcıyı tekrar giriş sayfasına fırlatıyorum; 
+bu sayede giriş sayfasında kullanıcıya özel bir hata mesajı gösterebiliyorum.
+
+Giriş başarılı olduğunda ise yeni bir sayfaya yönlendirmek yerine, PHP bloğu içerisinde Bootstrap destekli şık bir 
+"Hoş Geldiniz" ekranı basarak oturumun başarıyla açıldığını görselleştiriyorum.-->
+
 <?php
 // Form POST metoduyla gönderilmiş mi kontrol et
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

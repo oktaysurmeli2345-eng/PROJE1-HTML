@@ -1,3 +1,17 @@
+<!--Burada fetch() API'sini kullanarak internet üzerinden (OMDb) canlı veri çekiyorum. Bu işlem asenkron (eşzamansız) çalışır; 
+yani tarayıcı film verilerinin gelmesini beklerken donmaz. Gelen veriyi JSON formatında alıp, JavaScript ile anlamlandırarak 
+ekrana yansıtıyorum.
+
+Arama sonuçları geldiğinde, innerHTML ve Template Literals (ters tırnak  ) kullanarak HTML yapısını JavaScript içerisinde anlık
+olarak oluşturuyorum. Her film için Bootstrap’in card yapısını kullanarak otomatik bir ızgara (grid) sistemi kurdum; böylece 
+aranan filme göre sayfa içeriği kendi kendine yeniden şekilleniyor.
+
+Kullanıcı deneyimini (UX) korumak için iki kritik filtreleme yaptım: Birincisi, afişi olmayan (N/A) filmleri listeye dahil 
+etmedim. İkincisi, resim linki kırık olan görseller için onerror olayını kullanarak, o bozuk kartın sayfadan otomatik olarak 
+silinmesini sağladım. Böylece kullanıcı sadece "kusursuz" ve görselliği tam olan sonuçları görüyor.
+
+Kullanıcının sadece butona basmasını beklemeyip, keypress olay dinleyicisi ile "Enter" tuşu desteği ekledim. Ayrıca veri 
+çekilirken kullanıcıya bir spinner (yükleniyor animasyonu) göstererek sistemin o an çalıştığını görsel olarak hissettirdim.-->
 <!DOCTYPE html>
 <html lang="tr">
 

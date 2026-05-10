@@ -1,3 +1,10 @@
+<!--Formdan gönderilen verileri $_POST süper küresel dizisi ile yakaladım.Sayfanın doğrudan URL yazılarak açılmasını 
+engellemek için REQUEST_METHOD == POST kontrolü yaptım; böylece form doldurulmadan bu sayfaya girilemiyor.Kullanıcıdan 
+gelen tüm verileri htmlspecialchars() süzgecinden geçirdim. Bu sayede, kötü niyetli birinin form üzerinden zararlı kod 
+(script) çalıştırmasını (XSS saldırısı) önledim.Birden fazla seçilebilen "İletişim Tercihi" kutucuklarını (checkbox), 
+PHP'deki implode() fonksiyonu ile aralarına virgül koyarak okunabilir bir metne dönüştürdüm.Toplanan ve temizlenen bu 
+verileri, Bootstrap'in table-bordered ve table-striped sınıflarını kullanarak profesyonel bir tablo düzeninde ekrana yansıttım.-->
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>

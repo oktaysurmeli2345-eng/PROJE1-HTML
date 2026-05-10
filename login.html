@@ -1,3 +1,18 @@
+<!--Arayüzde Bootstrap'in d-flex, align-items-center ve justify-content-center sınıflarını kullanarak giriş formunu her türlü 
+ekran boyutunda tam merkeze sabitledim. Kart yapısı içindeki input-group ve FontAwesome ikonlarıyla modern bir kullanıcı 
+deneyimi sağlarken, formun method="POST" ile yapılandırılması sayesinde kimlik bilgilerinin URL üzerinden açık bir şekilde 
+gitmesini engelleyerek veri güvenliğinin ilk adımını attım.
+
+Kodun JavaScript kısmında kullandığım URLSearchParams yapısı, PHP tarafındaki doğrulamadan dönen sonuçları yakalamaktadır. 
+Eğer sunucu tarafında bir hata oluşursa, URL üzerinden gelen durum=hata veya durum=bos parametrelerini dinamik olarak analiz 
+edip, Bootstrap alert sınıfları aracılığıyla kullanıcıya "Hatalı şifre" veya "Boş alan" uyarılarını anlık olarak gösteren 
+interaktif bir yapı kurdum.
+
+Formun gönderilme anını (submit) bir olay dinleyicisi ile takip ederek, verinin sunucuya çıkışını henüz tarayıcıdayken kontrol 
+ediyorum. Bu aşamada sadece boş alan kontrolü yapmakla kalmayıp, projenin özel şartnamesi gereği e-posta adresinin
+ @sakarya.edu.tr uzantılı olup olmadığını denetliyorum; eğer kriterler sağlanmazsa e.preventDefault() komutuyla formun 
+ iletimini durdurup kullanıcıya yerinde müdahale ediyorum.-->
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>

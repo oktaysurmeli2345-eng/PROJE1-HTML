@@ -1,19 +1,30 @@
+<!--Container row ve col lg 4 : classları Bootstrapın ızgara  sistemidir.Bunlar telefonda nasıl görünmesini, sayfanın 12 birime ayrılmasını vs vs sağlar.-->
+<!--navbar, btn, nav-link: Bunlar Bootstrap'in hazır bileşen sınıfları. Menü çubuğu veya buton gibi yapıları sıfırdan CSS ile yazmak yerine, kütüphanenin sunduğu standart ve profesyonel görünümlü yapıları kullandım.-->
+<!--mb-5, py-3, text-center, fw-bold : Bunlar yardımcı(utility) sınıfları. CSS dosyasına gidip tek tek 'boşluk bırak', 'yazıyı kalınlaştır' veya 'ortala' yazmak yerine; Bootstrap'in bu kısa sınıflarını kullanarak tasarımı daha da kolaylaştırmayı sağladım..-->
+<!--aside : ana içerikten bağımsız yan sütunların oluşumunu sağlar-->
+<!-- footter : Sayfanın en alt (semantik) alanıdır-->
+<!-- script : Hamburger menü gibi hareketli parçaların çalışması için gereken kütüphanedir.-->
+<!--navbar dan aldığım ders : activeyi unutmaki hangi kısmı seçtiysen onun altında beyaz çizgi olsun!!!-->
+<!--Bir de target blank:Bu da yeni sekmede falan açılmasını sağlar -_- -->
+<!--Responsive tasarımın ilk adımı bu meta etiketidir; tarayıcıya cihaz genişliğini baz almasını söyler.-->
+<!--Resmin genişliğini %100 yaparak içinde bulunduğu sütuna hapseder, tasarımı patlatmaz.- _ - -->
+<!--class="ratio ratio-16x9": Ekran küçülse bile videonun en-boy oranının bozulmamasını sağlar.-->
+
 <!DOCTYPE html>
 <html lang="tr">
-
+<!---->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hakkımda | Oktay Sürmeli</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><!--Bootstrap çağırıldı-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><!--Burasıda ikon kütüphanesi.İnstagram Github gibi ikonların bulunduğu FontAwesome isimli kütüphane.Resimler için tek tek uğraşmamak için kullandım-->
+    <link rel="stylesheet" href="style.css"><!--Bootstrap genel tasarımı ve grid yapısını sağlıyor. `style.css` ise benim projeye özel seçtiğim renk paletini (`--navy` gibi) ve özel görsel efektleri içeriyor.-->
 </head>
-
 <body>
     <!-- Bootstrap Navbar kullanılarak mobil uyumlu ve sayfada kayarken üstte sabit kalan (sticky-top) menü oluşturuldu. -->
-    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top"> 
-        <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top"><!--navbar expand lg ile mobilde menünün yan tarafta durmasını , custom navbar ile de kendi istediğim lacivert rengini getirttim.Sticky top ile de navbarın sürekli üstte durmasını sağladım.-->
+        <div class="container"><!--İçeriği sayfada ortalayıp kenarlardan boşluk bırakan ve Bootstrap'in ızgara (grid) sistemini bir arada tutan ana çerçevedir.-->
             <a class="navbar-brand fw-bold" href="hakkimda.html">OKTAY SÜRMELİ</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -166,7 +177,7 @@
         </div>
         </div>
     </main>
-    <!-- Sayfa alt bilgi alanı (footer) semantik etiketle tanımlanmış ve border-top ile görsel olarak ayrılmıştır. -->
+    <!-- Sayfa alt bilgi alanı (footer) semantik etiketle tanımlanmasını sağladım ve border-top ile görsel olarak ayrılmıştır. -->
     <footer class="py-4 text-center border-top bg-white">
         <p class="text-secondary mb-0">© 2026 Oktay Sürmeli - Tüm Hakları Saklıdır.</p>
     </footer>

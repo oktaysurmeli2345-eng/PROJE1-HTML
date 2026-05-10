@@ -522,7 +522,7 @@ footer {
     color: #f1c40f; /* Arama butonundaki altın sarısı ile eşitledik */
     filter: drop-shadow(2px 2px 2px rgba(0, 27, 58, 0.2));
     transform: rotate(-5deg); /* Hafif eğiklik, sinema klaketine ruh katar */
-}
+} 
 
 /* BAŞLIĞIN ALTINDAKİ TASARIMSAL ÇİZGİ */
 .baslik-alt-cizgi {
